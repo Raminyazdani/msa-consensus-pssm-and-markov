@@ -1,0 +1,18 @@
+Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(init): add .gitignore and dependencies
+
+Initial commit: add .gitignore and dependencies
+
+Created .gitignore for Python projects with standard ignores for Python bytecode,
+virtual environments, IDE files, and generated outputs. Defined all Python dependencies
+in requirements.txt with specific versions for compatibility:
+- biopython>=1.79 for sequence analysis
+- logomaker>=0.8 for sequence logo visualization
+- numpy>=1.21.0 for numerical operations
+- matplotlib>=3.4.0 for plotting
+- jupyter>=1.0.0 for interactive notebooks
+
+This establishes the foundation for reproducible development by ensuring consistent
+environments across all development machines and platforms.
+
+Verified by: Checking that requirements.txt contains all necessary dependencies
+for the planned bioinformatics toolkit modules.
