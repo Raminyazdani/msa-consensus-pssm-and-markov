@@ -1,18 +1,20 @@
-Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(init): add .gitignore and dependencies
+Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(docs): add README with project overview and planned features
 
-Initial commit: add .gitignore and dependencies
+Add README with project overview and planned features
 
-Created .gitignore for Python projects with standard ignores for Python bytecode,
-virtual environments, IDE files, and generated outputs. Defined all Python dependencies
-in requirements.txt with specific versions for compatibility:
-- biopython>=1.79 for sequence analysis
-- logomaker>=0.8 for sequence logo visualization
-- numpy>=1.21.0 for numerical operations
-- matplotlib>=3.4.0 for plotting
-- jupyter>=1.0.0 for interactive notebooks
+Created comprehensive README.md outlining the project scope, planned features,
+and technical approach. Documented three main planned components:
+1. Consensus sequence calculator from MSA
+2. PSSM generator with sequence logo visualization
+3. Markov chain simulator for modeling state transitions
 
-This establishes the foundation for reproducible development by ensuring consistent
-environments across all development machines and platforms.
+Listed complete tech stack (Python, BioPython, logomaker, numpy, matplotlib, Jupyter)
+and provided initial setup instructions. Marked project status as "initial development phase"
+to clearly communicate that this is a planning document before implementation begins.
 
-Verified by: Checking that requirements.txt contains all necessary dependencies
-for the planned bioinformatics toolkit modules.
+This README serves dual purposes: planning document for development and initial
+documentation for future users. Having clear documentation before implementation
+helps maintain focus and prevents scope creep.
+
+Verified by: Reviewing README structure and confirming all planned features are
+clearly described with appropriate technical detail.
