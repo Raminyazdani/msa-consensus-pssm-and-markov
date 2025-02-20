@@ -1,19 +1,23 @@
-Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(data): add FASTA input and output data files
+Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(consensus): implement consensus sequence calculation from MSA
 
-Add FASTA input and output data files
+Implement consensus sequence calculation from MSA
 
-Added test data files for bioinformatics analysis:
-- raw_sequences.fasta: Contains unaligned protein sequences (11 sequences)
-- msa_output.fasta: Contains aligned sequences produced by Clustal Omega
+Created consensus_sequence.py script that implements majority voting algorithm
+for determining the consensus sequence from a multiple sequence alignment.
 
-These real biological sequences serve as test inputs for module development,
-enabling test-driven development of the consensus calculator, PSSM generator,
-and sequence logo visualization tools. The aligned sequences in msa_output.fasta
-demonstrate realistic gap patterns and amino acid distributions found in protein families.
+Key implementation:
+- Uses BioPython's AlignIO for FASTA file parsing
+- Iterates through each position in the alignment
+- Counts character occurrences at each position using Counter
+- Selects most common character as consensus
 
-Having test data early in development allows for immediate validation of each
-module as it is implemented, following best practices for scientific software
-development where reproducibility and testability are critical.
+The script accepts a FASTA alignment file as command-line argument and prints
+the resulting consensus sequence. This is the simplest module in the toolkit,
+providing foundational sequence analysis functionality.
 
-Verified by: Confirmed FASTA files are well-formed (proper headers, valid amino acid codes)
-and that msa_output.fasta contains aligned sequences of consistent length.
+Known limitation: This initial implementation counts ALL characters including
+gap characters ('-'), which may produce incorrect consensus when gaps are
+predominant at certain positions. This will be addressed after initial testing.
+
+Verified by: Script runs without errors on msa_output.fasta and produces output
+(though output correctness will be validated in testing phase).
