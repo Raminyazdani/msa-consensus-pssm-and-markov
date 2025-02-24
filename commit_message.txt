@@ -1,23 +1,26 @@
-Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(consensus): implement consensus sequence calculation from MSA
+Ramin Yazdani | MSA Consensus PSSM and Markov | main | feat(consensus): fix gap handling in consensus calculator
 
-Implement consensus sequence calculation from MSA
+Fix: ignore gaps when calculating consensus sequence
 
-Created consensus_sequence.py script that implements majority voting algorithm
-for determining the consensus sequence from a multiple sequence alignment.
+Fixed critical bug in consensus_sequence.py where gap characters ('-') were
+being counted when determining the most common character at each position.
+This caused incorrect consensus sequences with spurious gaps appearing where
+positions had gaps as the most frequent character.
 
-Key implementation:
-- Uses BioPython's AlignIO for FASTA file parsing
-- Iterates through each position in the alignment
-- Counts character occurrences at each position using Counter
-- Selects most common character as consensus
+Changes made:
+- Added gap filtering: `if char != '-':` before counting characters
+- Added fallback to 'X' for positions that are all gaps (representing unknown amino acid)
+- Tested successfully with msa_output.fasta
 
-The script accepts a FASTA alignment file as command-line argument and prints
-the resulting consensus sequence. This is the simplest module in the toolkit,
-providing foundational sequence analysis functionality.
+The fix ensures biologically meaningful consensus sequences. Gap characters
+represent alignment artifacts and should not be included in consensus calculation.
+Using 'X' for all-gap positions follows standard bioinformatics practice for
+representing ambiguous or unknown amino acids.
 
-Known limitation: This initial implementation counts ALL characters including
-gap characters ('-'), which may produce incorrect consensus when gaps are
-predominant at certain positions. This will be addressed after initial testing.
+Bug discovered during first test run when examining the consensus output, which
+contained many '-' characters that don't make biological sense in a consensus
+sequence. This is a common mistake in sequence analysis code and represents
+the natural debugging cycle in bioinformatics programming.
 
-Verified by: Script runs without errors on msa_output.fasta and produces output
-(though output correctness will be validated in testing phase).
+Verified by: Tested with msa_output.fasta and confirmed consensus sequence
+contains only valid amino acid characters without spurious gaps.

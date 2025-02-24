@@ -33,11 +33,14 @@ def calculate_consensus_sequence(clustal_omega_file):
         # Count occurrences of each character
         counts = {}
         for char in column:
-            # OOPS: Not handling gaps - should ignore '-' characters
-            counts[char] = counts.get(char, 0) + 1
+            if char != '-':  # Ignore gaps
+                counts[char] = counts.get(char, 0) + 1
         
-        # Get most common character
-        consensus_str += max(counts, key=counts.get)
+        # Get most common character (or 'X' if all gaps)
+        if counts:
+            consensus_str += max(counts, key=counts.get)
+        else:
+            consensus_str += 'X'
     
     consensus = consensus_str
     print(consensus)
