@@ -1,26 +1,27 @@
-Ramin Yazdani | MSA Consensus PSSM and Markov | main | feat(consensus): fix gap handling in consensus calculator
+Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(pssm): add PSSM generation and sequence profile CSV export
 
-Fix: ignore gaps when calculating consensus sequence
+Add PSSM generation and sequence profile CSV export
 
-Fixed critical bug in consensus_sequence.py where gap characters ('-') were
-being counted when determining the most common character at each position.
-This caused incorrect consensus sequences with spurious gaps appearing where
-positions had gaps as the most frequent character.
+Implemented sequence_profile.py script with sophisticated position-specific
+scoring matrix (PSSM) generation functionality. This script builds upon the
+basic consensus calculator by creating detailed probability distributions
+for each position in the alignment.
 
-Changes made:
-- Added gap filtering: `if char != '-':` before counting characters
-- Added fallback to 'X' for positions that are all gaps (representing unknown amino acid)
-- Tested successfully with msa_output.fasta
+Key features:
+- calculate_sequence_profiles() function generates PSSM from aligned sequences
+- Converts raw character counts to probability distributions at each position
+- Filters gap characters (using lessons learned from step_05)
+- Exports results to CSV with alphabetically sorted amino acid headers
+- Uses pathlib for robust cross-platform path handling
+- Configurable output prefix via MSA_OUTPUT_PREFIX environment variable
 
-The fix ensures biologically meaningful consensus sequences. Gap characters
-represent alignment artifacts and should not be included in consensus calculation.
-Using 'X' for all-gap positions follows standard bioinformatics practice for
-representing ambiguous or unknown amino acids.
+The PSSM output enables downstream analyses like motif discovery, sequence
+comparison, and binding site prediction. Exporting to CSV allows easy import
+into spreadsheet tools or statistical software for further analysis.
 
-Bug discovered during first test run when examining the consensus output, which
-contained many '-' characters that don't make biological sense in a consensus
-sequence. This is a common mistake in sequence analysis code and represents
-the natural debugging cycle in bioinformatics programming.
+Visualization capability will be added in the next step to maintain separation
+of concerns (calculation vs visualization) and allow independent testing of
+each component.
 
-Verified by: Tested with msa_output.fasta and confirmed consensus sequence
-contains only valid amino acid characters without spurious gaps.
+Verified by: Script generates correctly formatted CSV file with probability
+values that sum to 1.0 (or close due to floating point) for each position.
