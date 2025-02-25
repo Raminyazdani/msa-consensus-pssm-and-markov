@@ -1,27 +1,29 @@
-Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(pssm): add PSSM generation and sequence profile CSV export
+Ramin Yazdani | MSA Consensus PSSM and Markov | main | feat(pssm): add sequence logo visualization with logomaker
 
-Add PSSM generation and sequence profile CSV export
+Add sequence logo visualization with logomaker
 
-Implemented sequence_profile.py script with sophisticated position-specific
-scoring matrix (PSSM) generation functionality. This script builds upon the
-basic consensus calculator by creating detailed probability distributions
-for each position in the alignment.
+Extended sequence_profile.py with sequence logo generation capability,
+completing the PSSM analysis module. Sequence logos provide intuitive
+visual representation of sequence conservation patterns, with letter
+height proportional to information content at each position.
 
-Key features:
-- calculate_sequence_profiles() function generates PSSM from aligned sequences
-- Converts raw character counts to probability distributions at each position
-- Filters gap characters (using lessons learned from step_05)
-- Exports results to CSV with alphabetically sorted amino acid headers
-- Uses pathlib for robust cross-platform path handling
-- Configurable output prefix via MSA_OUTPUT_PREFIX environment variable
+Implementation details:
+- Added sequence_logo_creator() function using logomaker library
+- Creates high-resolution PNG images (50x5 inches, 300 DPI)
+- Uses 'chemistry' color scheme appropriate for amino acids
+- Automatically scales figure dimensions based on alignment length
+- Integrates seamlessly with existing PSSM calculation pipeline
 
-The PSSM output enables downstream analyses like motif discovery, sequence
-comparison, and binding site prediction. Exporting to CSV allows easy import
-into spreadsheet tools or statistical software for further analysis.
+Sequence logos are standard visualizations in bioinformatics publications
+and presentations, making this essential for portfolio-ready scientific
+software. The chemistry color scheme (hydrophobic, polar, charged) helps
+biologists quickly identify functional patterns in alignments.
 
-Visualization capability will be added in the next step to maintain separation
-of concerns (calculation vs visualization) and allow independent testing of
-each component.
+This completes the PSSM module as a separate commit because visualization
+required additional testing with logomaker integration and figure formatting.
+Keeping calculation and visualization separate allows easier debugging and
+maintenance.
 
-Verified by: Script generates correctly formatted CSV file with probability
-values that sum to 1.0 (or close due to floating point) for each position.
+Verified by: Generated sequence logo PNG from msa_output.fasta and confirmed
+visual output shows expected conservation patterns with proper color coding
+and scaling.
