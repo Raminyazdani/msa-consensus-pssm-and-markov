@@ -1,29 +1,27 @@
-Ramin Yazdani | MSA Consensus PSSM and Markov | main | feat(pssm): add sequence logo visualization with logomaker
+Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(markov): implement discrete-time Markov chain simulation
 
-Add sequence logo visualization with logomaker
+Implement discrete-time Markov chain simulation
 
-Extended sequence_profile.py with sequence logo generation capability,
-completing the PSSM analysis module. Sequence logos provide intuitive
-visual representation of sequence conservation patterns, with letter
-height proportional to information content at each position.
+Created markov_simulation.py implementing discrete-time Markov chain
+simulator for modeling stochastic state transitions. While independent
+of the sequence analysis modules, Markov chains are fundamental to
+bioinformatics (e.g., hidden Markov models in sequence analysis).
 
-Implementation details:
-- Added sequence_logo_creator() function using logomaker library
-- Creates high-resolution PNG images (50x5 inches, 300 DPI)
-- Uses 'chemistry' color scheme appropriate for amino acids
-- Automatically scales figure dimensions based on alignment length
-- Integrates seamlessly with existing PSSM calculation pipeline
+Key implementation:
+- simulate_markov_chain() function with numpy-based random sampling
+- Accepts custom transition matrices and initial state distributions
+- Runs multi-step simulations and reports state frequencies
+- Example models traveler movement between Berlin, Munich, and Hamburg
 
-Sequence logos are standard visualizations in bioinformatics publications
-and presentations, making this essential for portfolio-ready scientific
-software. The chemistry color scheme (hydrophobic, polar, charged) helps
-biologists quickly identify functional patterns in alignments.
+The implementation demonstrates:
+- Proper use of numpy for probabilistic calculations
+- State transition mechanics following standard Markov chain theory
+- Clear output formatting for interpretability
 
-This completes the PSSM module as a separate commit because visualization
-required additional testing with logomaker integration and figure formatting.
-Keeping calculation and visualization separate allows easier debugging and
-maintenance.
+This module could be extended for more advanced applications like
+modeling substitution patterns in sequence evolution or analyzing
+state-dependent processes in biological systems.
 
-Verified by: Generated sequence logo PNG from msa_output.fasta and confirmed
-visual output shows expected conservation patterns with proper color coding
-and scaling.
+Verified by: Ran 100-step simulation and confirmed state frequencies
+converge toward stationary distribution, and transition probabilities
+sum to 1.0 for each state (required for valid Markov chain).
