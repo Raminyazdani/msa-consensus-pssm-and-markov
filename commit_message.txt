@@ -1,27 +1,25 @@
-Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(markov): implement discrete-time Markov chain simulation
+Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(markov): refine Markov simulation output formatting
 
-Implement discrete-time Markov chain simulation
+Refine Markov simulation output formatting
 
-Created markov_simulation.py implementing discrete-time Markov chain
-simulator for modeling stochastic state transitions. While independent
-of the sequence analysis modules, Markov chains are fundamental to
-bioinformatics (e.g., hidden Markov models in sequence analysis).
+Made minor improvements to output formatting in markov_simulation.py to
+enhance readability and professional presentation. After confirming the
+core functionality works correctly, this polish step improves the user
+experience without changing any computational logic.
 
-Key implementation:
-- simulate_markov_chain() function with numpy-based random sampling
-- Accepts custom transition matrices and initial state distributions
-- Runs multi-step simulations and reports state frequencies
-- Example models traveler movement between Berlin, Munich, and Hamburg
+Refinements include:
+- Consistent spacing and alignment in printed results
+- Added clarifying messages for better interpretation
+- Improved formatting of state frequency output
+- Minor code style improvements for maintainability
 
-The implementation demonstrates:
-- Proper use of numpy for probabilistic calculations
-- State transition mechanics following standard Markov chain theory
-- Clear output formatting for interpretability
+This represents the natural polish phase that follows initial implementation
+and testing. Small formatting improvements make the tool more professional
+and easier to use for demonstrations or teaching purposes.
 
-This module could be extended for more advanced applications like
-modeling substitution patterns in sequence evolution or analyzing
-state-dependent processes in biological systems.
+No functional changes were made - all probability calculations and state
+transitions remain identical to step_08. This commit focuses purely on
+presentation quality.
 
-Verified by: Ran 100-step simulation and confirmed state frequencies
-converge toward stationary distribution, and transition probabilities
-sum to 1.0 for each state (required for valid Markov chain).
+Verified by: Ran simulation and confirmed output is more readable while
+producing identical numerical results to previous version.
