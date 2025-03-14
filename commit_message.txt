@@ -1,25 +1,28 @@
-Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(markov): refine Markov simulation output formatting
+Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(notebook): add Jupyter notebook with Markov chain demonstration
 
-Refine Markov simulation output formatting
+Add Jupyter notebook with Markov chain demonstration
 
-Made minor improvements to output formatting in markov_simulation.py to
-enhance readability and professional presentation. After confirming the
-core functionality works correctly, this polish step improves the user
-experience without changing any computational logic.
+Created markov_simulation.ipynb providing interactive environment for
+experimenting with Markov chain simulations. The notebook complements
+the CLI version by adding educational context and enabling parameter
+experimentation without modifying source code.
 
-Refinements include:
-- Consistent spacing and alignment in printed results
-- Added clarifying messages for better interpretation
-- Improved formatting of state frequency output
-- Minor code style improvements for maintainability
+Notebook contents:
+- Professional markdown cells explaining Markov chain concepts
+- Clear description of the example scenario (traveler between cities)
+- Documentation of transition matrix interpretation
+- Same implementation code as CLI version for consistency
+- Interactive environment encouraging experimentation
 
-This represents the natural polish phase that follows initial implementation
-and testing. Small formatting improvements make the tool more professional
-and easier to use for demonstrations or teaching purposes.
+Jupyter notebooks are valuable for:
+- Teaching and demonstrating concepts to others
+- Rapid prototyping and parameter tuning
+- Creating reproducible computational narratives
+- Portfolio presentations showing interactive capabilities
 
-No functional changes were made - all probability calculations and state
-transitions remain identical to step_08. This commit focuses purely on
-presentation quality.
+The notebook reuses the working code from markov_simulation.py and adds
+explanatory markdown, following DRY principles while maximizing value
+for different use cases (scripting vs interactive analysis).
 
-Verified by: Ran simulation and confirmed output is more readable while
-producing identical numerical results to previous version.
+Verified by: Opened notebook in Jupyter, executed all cells, and confirmed
+identical behavior to CLI script with enhanced explanatory context.
