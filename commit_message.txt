@@ -1,28 +1,28 @@
-Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(notebook): add Jupyter notebook with Markov chain demonstration
+Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(docs): comprehensive README update with usage examples
 
-Add Jupyter notebook with Markov chain demonstration
+Comprehensive README update with usage examples
 
-Created markov_simulation.ipynb providing interactive environment for
-experimenting with Markov chain simulations. The notebook complements
-the CLI version by adding educational context and enabling parameter
-experimentation without modifying source code.
+Significantly expanded README.md with complete documentation for all three
+modules now that core functionality is implemented and tested. This represents
+the knowledge consolidation phase where development insights are transformed
+into comprehensive user-facing documentation.
 
-Notebook contents:
-- Professional markdown cells explaining Markov chain concepts
-- Clear description of the example scenario (traveler between cities)
-- Documentation of transition matrix interpretation
-- Same implementation code as CLI version for consistency
-- Interactive environment encouraging experimentation
+Major additions:
+- Detailed usage instructions for all scripts (consensus, PSSM, Markov)
+- Environment variable documentation (MSA_OUTPUT_PREFIX configuration)
+- Expected outputs for each module with file naming conventions
+- Data files explanation (distinguishing input vs output)
+- Key features section describing each module's capabilities
+- Command examples for all platforms (Linux/Mac/Windows)
+- Cross-platform considerations for path handling
 
-Jupyter notebooks are valuable for:
-- Teaching and demonstrating concepts to others
-- Rapid prototyping and parameter tuning
-- Creating reproducible computational narratives
-- Portfolio presentations showing interactive capabilities
+The README now serves as complete reference documentation, enabling users
+to understand, install, and use the toolkit without reading source code.
+This is essential for portfolio projects where documentation quality
+demonstrates professional software development practices.
 
-The notebook reuses the working code from markov_simulation.py and adds
-explanatory markdown, following DRY principles while maximizing value
-for different use cases (scripting vs interactive analysis).
+Documentation reflects actual implementation details learned during development,
+including environment variable approach, pathlib usage, and output file naming.
 
-Verified by: Opened notebook in Jupyter, executed all cells, and confirmed
-identical behavior to CLI script with enhanced explanatory context.
+Verified by: Followed README instructions on clean environment and confirmed
+all commands work as documented across different execution contexts.
