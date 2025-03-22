@@ -149,6 +149,58 @@ The simulation models state transitions (e.g., city visits) using a transition m
 - Tracks and reports state frequencies
 - Example: Models traveler movement between cities
 
+## Reproducibility Notes
+
+### Consensus Sequence
+- Threshold parameter set to 0 for maximum conservation
+- Alternative: Adjust threshold in `dumb_consensus()` for different stringency
+
+### Sequence Logos
+- Generated with `logomaker` chemistry color scheme
+- Figure size: 50x5 inches for high detail
+- Stack order: `small_on_top` for visual clarity
+
+### Markov Simulation
+- Uses `numpy.random.choice` with transition probabilities
+- Set random seed for reproducible results:
+  ```python
+  np.random.seed(42)
+  ```
+
+## Troubleshooting
+
+**Import Errors**:
+```bash
+pip install biopython logomaker numpy matplotlib jupyter
+```
+
+**BioPython Version**:
+Verify installation:
+```bash
+python -c "import Bio; print(Bio.__version__)"
+```
+Requires BioPython >=1.79
+
+**File Not Found**:
+Ensure FASTA files are in the project directory or provide full paths:
+```bash
+python consensus_sequence.py /path/to/alignment.fasta
+```
+
+**Logomaker Missing**:
+The `logomaker` package is required for sequence logo generation:
+```bash
+pip install logomaker
+```
+
+**Output File Customization**:
+By default, output files are named `sequence_analysis_sequence_profile.csv` and `sequence_analysis_sequence_logo.png`.
+To customize the prefix, set the `MSA_OUTPUT_PREFIX` environment variable before running:
+```bash
+export MSA_OUTPUT_PREFIX="my_project"  # Linux/Mac
+set MSA_OUTPUT_PREFIX=my_project       # Windows CMD
+```
+
 ## Expected Outputs
 
 ### consensus_sequence.py

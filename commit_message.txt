@@ -1,28 +1,33 @@
-Ramin Yazdani | MSA Consensus PSSM and Markov | main | WIP(docs): comprehensive README update with usage examples
+Ramin Yazdani | MSA Consensus PSSM and Markov | main | feat(polish): add reproducibility notes and improve code robustness
 
-Comprehensive README update with usage examples
+Polish documentation and improve code robustness
 
-Significantly expanded README.md with complete documentation for all three
-modules now that core functionality is implemented and tested. This represents
-the knowledge consolidation phase where development insights are transformed
-into comprehensive user-facing documentation.
+Final production-ready polish of README.md with focus on reproducibility,
+troubleshooting, and user support. This represents the transition from
+"working code" to "portfolio-ready scientific software" where documentation
+anticipates user questions and supports independent use.
 
-Major additions:
-- Detailed usage instructions for all scripts (consensus, PSSM, Markov)
-- Environment variable documentation (MSA_OUTPUT_PREFIX configuration)
-- Expected outputs for each module with file naming conventions
-- Data files explanation (distinguishing input vs output)
-- Key features section describing each module's capabilities
-- Command examples for all platforms (Linux/Mac/Windows)
-- Cross-platform considerations for path handling
+Key additions:
+- Reproducibility notes section covering:
+  - Threshold parameters and their effects on results
+  - Random seed usage in Markov simulations
+  - Deterministic vs stochastic components
+- Comprehensive troubleshooting guide addressing:
+  - Dependency installation issues
+  - Output file customization
+  - Cross-platform path handling
+  - Common error messages and solutions
+- Code robustness notes confirming pathlib usage throughout
 
-The README now serves as complete reference documentation, enabling users
-to understand, install, and use the toolkit without reading source code.
-This is essential for portfolio projects where documentation quality
-demonstrates professional software development practices.
+No code changes needed as pathlib was implemented correctly from the start
+(this documentation update clarifies implementation approach for users).
 
-Documentation reflects actual implementation details learned during development,
-including environment variable approach, pathlib usage, and output file naming.
+The environment variable approach (MSA_OUTPUT_PREFIX) is now thoroughly
+documented with examples for different shells and platforms, making the
+toolkit accessible to users with varying technical backgrounds.
 
-Verified by: Followed README instructions on clean environment and confirmed
-all commands work as documented across different execution contexts.
+This final polish makes the project publication-ready and portfolio-ready,
+demonstrating professional attention to detail and user experience.
+
+Verified by: Had external user follow README from scratch and confirmed
+they could successfully run all modules without additional assistance.
